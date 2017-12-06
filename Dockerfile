@@ -13,6 +13,12 @@ ENV APP_NAME tinyMediaManager
 CMD ["/sbin/my_init"]
 
 #########################################
+##         EXPORTS AND VOLUMES         ##
+#########################################
+VOLUME ["/config"]
+EXPOSE 3389 8080
+
+#########################################
 ##         RUN INSTALL SCRIPT          ##
 #########################################
 COPY ./files/ /tmp/
@@ -31,8 +37,3 @@ RUN apt-get update \
 && tar -zxvf /tmp/tinyMediaManager.tar.gz -C /tinyMediaManager \
 && chmod +x /tmp/install/tmm_install.sh && /tmp/install/tmm_install.sh && rm -r /tmp/install
 
-#########################################
-##         EXPORTS AND VOLUMES         ##
-#########################################
-VOLUME ["/config"]
-EXPOSE 3389 8080

@@ -36,5 +36,6 @@ RUN apt-get update \
 && mkdir /tinyMediaManager \
 && wget http://release.tinymediamanager.org/dist/$TMMVER.tar.gz -O /tmp/tinyMediaManager.tar.gz \
 && tar -zxvf /tmp/tinyMediaManager.tar.gz -C /tinyMediaManager \
+&& chmod -R ugo+rw /tinyMediaManager \
 && chmod +x /tmp/install/tmm_install.sh && /tmp/install/tmm_install.sh && rm -r /tmp/install
 

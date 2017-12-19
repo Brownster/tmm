@@ -9,6 +9,7 @@ MAINTAINER Carlos Hernandez <carlos@techbyte.ca>
 ENV LC_ALL="C.UTF-8" LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8" 
 ENV APP_NAME tinyMediaManager
 ENV TMMVER tmm_2.9.6_94c1e5f_linux
+VOLUME ["/freepbxbackup"]
 
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]

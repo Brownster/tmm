@@ -1,5 +1,5 @@
 # tinyMediaManager 
-FROM consol/centos-xfce-vnc
+FROM consol/ubuntu-xfce-vnc
 MAINTAINER Carlos Hernandez <carlos@techbyte.ca>
 
 #########################################

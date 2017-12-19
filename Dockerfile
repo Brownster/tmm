@@ -9,7 +9,9 @@ MAINTAINER Carlos Hernandez <carlos@techbyte.ca>
 ENV LC_ALL="C.UTF-8" LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8" 
 ENV APP_NAME tinyMediaManager
 ENV TMMVER tmm_2.9.6_94c1e5f_linux
-VOLUME ["/freepbxbackup"]
+VOLUME ["/tinyMediaManager"]
+# Add start.sh
+ADD start.sh /root/
 
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
@@ -39,4 +41,4 @@ RUN apt-get update \
 && tar -zxvf /tmp/tinyMediaManager.tar.gz -C /tinyMediaManager \
 && chmod -R ugo+rw /tinyMediaManager \
 && chmod +x /tmp/install/tmm_install.sh && /tmp/install/tmm_install.sh && rm -r /tmp/install
-
+CMD bash -C '/root/start.sh';'bash'

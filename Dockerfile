@@ -8,6 +8,7 @@ MAINTAINER Carlos Hernandez <carlos@techbyte.ca>
 # Set correct environment variables
 ENV LC_ALL="C.UTF-8" LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8" 
 ENV APP_NAME tinyMediaManager
+ENV TMMVER tmm_2.9.6_94c1e5f_linux
 
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
@@ -33,7 +34,7 @@ RUN apt-get update \
 ## INSTALL DIRECTLY FROM RELEASE PAGE  ##
 #########################################
 && mkdir /tinyMediaManager \
-&& wget http://release.tinymediamanager.org/dist/tmm_2.9.5_1bf3695_linux.tar.gz -O /tmp/tinyMediaManager.tar.gz \
+&& wget http://release.tinymediamanager.org/dist/$TMMVER.tar.gz -O /tmp/tinyMediaManager.tar.gz \
 && tar -zxvf /tmp/tinyMediaManager.tar.gz -C /tinyMediaManager \
 && chmod +x /tmp/install/tmm_install.sh && /tmp/install/tmm_install.sh && rm -r /tmp/install
 

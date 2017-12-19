@@ -1,5 +1,5 @@
 # tinyMediaManager 
-FROM hurricane/dockergui:x11rdp1.3
+FROM consol/centos-xfce-vnc
 MAINTAINER Carlos Hernandez <carlos@techbyte.ca>
 
 #########################################
@@ -9,7 +9,6 @@ MAINTAINER Carlos Hernandez <carlos@techbyte.ca>
 ENV LC_ALL="C.UTF-8" LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8" 
 ENV APP_NAME tinyMediaManager
 ENV TMMVER tmm_2.9.6_94c1e5f_linux
-VOLUME ["/tinyMediaManager"]
 # Add start.sh
 ADD start.sh /root/
 
@@ -21,6 +20,8 @@ CMD ["/sbin/my_init"]
 #########################################
 VOLUME ["/config"]
 EXPOSE 3389 8080
+EXPOSE 5901
+EXPOSE 6901
 
 #########################################
 ##         RUN INSTALL SCRIPT          ##
@@ -36,7 +37,7 @@ RUN apt-get update \
 #########################################
 ## INSTALL DIRECTLY FROM RELEASE PAGE  ##
 #########################################
-#&& mkdir /tinyMediaManager \
+&& mkdir /tinyMediaManager \
 && wget http://release.tinymediamanager.org/dist/$TMMVER.tar.gz -O /tmp/tinyMediaManager.tar.gz \
 && tar -zxvf /tmp/tinyMediaManager.tar.gz -C /tinyMediaManager \
 && chmod -R ugo+rw /tinyMediaManager \

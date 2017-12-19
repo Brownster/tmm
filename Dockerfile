@@ -42,4 +42,3 @@ RUN apt-get update \
 && tar -zxvf /tmp/tinyMediaManager.tar.gz -C /tinyMediaManager \
 && chmod -R ugo+rw /tinyMediaManager \
 && chmod +x /tmp/install/tmm_install.sh && /tmp/install/tmm_install.sh && rm -r /tmp/install
-CMD bash -C '/root/start.sh';'bash'
